@@ -1,4 +1,5 @@
-import { get, addPrefix } from '../src/array';
+import _ from 'lodash';
+import { get, addPrefix, swap } from '../src/array';
 
 test('get', () => {
   const cities = ['moscow', 'london', 'berlin', 'porto', ''];
@@ -29,4 +30,38 @@ it('addPrefix', () => {
   const actual2 = addPrefix(names, 'Mrs');
   const expected2 = ['Mrs john', 'Mrs smith', 'Mrs karl'];
   expect(actual2).toEqual(expected2);
+});
+
+describe('swap', () => {
+  it('to equal', () => {
+    const names = ['john', 'smith', 'karl'];
+    expect(swap(_.clone(names), 0)).toEqual(names);
+    expect(swap(_.clone(names), 2)).toEqual(names);
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
+
+  it('to equal with false', () => {
+    const names = ['john', 'smith', false];
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
+
+  it('to equal with undefined', () => {
+    const names = ['john', 'smith', undefined];
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
+
+  it('to equal with 0', () => {
+    const names = ['john', 'smith', 0];
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
+
+  it('to equal with empty string', () => {
+    const names = ['john', 'smith', ''];
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
+
+  it('to equal with null', () => {
+    const names = ['john', 'smith', null];
+    expect(swap(_.clone(names), 1)).toEqual(_.clone(names).reverse());
+  });
 });

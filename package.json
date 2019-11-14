@@ -19,5 +19,8 @@
     "eslint-plugin-jest": "^23.0.4",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
