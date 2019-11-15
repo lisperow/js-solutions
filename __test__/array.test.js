@@ -5,7 +5,8 @@ import {
   swap, 
   isContinuousSequence, 
   calculateAverage,
-  findIndex
+  findIndex, 
+  getSameParity
 } from '../src/array';
 
 test('get', () => {
@@ -56,6 +57,24 @@ it('findIndex', () => {
   expect(findIndex(temperatures, 34)).toBe(1);
   expect(findIndex(temperatures, 40)).toBe(3);
   expect(findIndex(temperatures, 3)).toBe(-1);
+});
+
+it('getSameParity', () => {
+  const actual1 = getSameParity([2, 2, 8, 10]);
+  const expected1 = [2, 2, 8, 10];
+  expect(actual1).toEqual(expected1);
+
+  const actual2 = getSameParity([2, 1, 3, 10]);
+  const expected2 = [2, 10];
+  expect(actual2).toEqual(expected2);
+
+  const actual3 = getSameParity([1, 2, 5, 10]);
+  const expected3 = [1, 5];
+  expect(actual3).toEqual(expected3);
+
+  const actual4 = getSameParity([]);
+  const expected4 = [];
+  expect(actual4).toEqual(expected4);
 });
 
 describe('swap', () => {

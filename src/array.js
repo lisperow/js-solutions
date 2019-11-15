@@ -60,3 +60,11 @@ export const findIndex = (arr, value) => {
 
   return -1;
 };
+
+export const getSameParity = (arr) => {
+  if (arr.length === 0) {
+    return [];
+  }
+  const reminder = arr[0] % 2;
+  return arr.filter(item => item % 2 === reminder);
+};
