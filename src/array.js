@@ -42,3 +42,21 @@ export const isContinuousSequence = (coll) => {
 
   return true;
 };
+
+export const calculateAverage = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  const sumOfNumbers = arr.reduce((acc, item) => acc + item, 0);
+  return sumOfNumbers / arr.length;
+};
+
+export const findIndex = (arr, value) => {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] === value) {
+      return i;
+    }
+  }
+
+  return -1;
+};

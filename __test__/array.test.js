@@ -1,5 +1,12 @@
 import _ from 'lodash';
-import { get, addPrefix, swap, isContinuousSequence } from '../src/array';
+import { 
+  get, 
+  addPrefix, 
+  swap, 
+  isContinuousSequence, 
+  calculateAverage,
+  findIndex
+} from '../src/array';
 
 test('get', () => {
   const cities = ['moscow', 'london', 'berlin', 'porto', ''];
@@ -30,6 +37,25 @@ it('addPrefix', () => {
   const actual2 = addPrefix(names, 'Mrs');
   const expected2 = ['Mrs john', 'Mrs smith', 'Mrs karl'];
   expect(actual2).toEqual(expected2);
+});
+
+it('calculateAverage', () => {
+  const temperatures1 = [37.5, 34, 39.3, 40, 38.7, 41.5];
+  expect(calculateAverage(temperatures1)).toBe(38.5);
+
+  const temperatures2 = [36, 37.4, 39, 41, 36.6];
+  expect(calculateAverage(temperatures2)).toBe(38);
+
+  const temperatures3 = [];
+  expect(calculateAverage(temperatures3)).toBeNull();
+});
+
+it('findIndex', () => {
+  const temperatures = [37.5, 34, 39.3, 40, 38.7, 41.5];
+
+  expect(findIndex(temperatures, 34)).toBe(1);
+  expect(findIndex(temperatures, 40)).toBe(3);
+  expect(findIndex(temperatures, 3)).toBe(-1);
 });
 
 describe('swap', () => {
