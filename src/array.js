@@ -25,3 +25,20 @@ export const swap = (coll, center) => {
 
   return coll;
 };
+
+export const isContinuousSequence = (coll) => {
+  if (coll.length <= 1) {
+    return false;
+  }
+
+  let index = 0;
+  const start = coll[index];
+  for (const item of coll) {
+    if (start + index !== item) {
+      return false;
+    }
+    index += 1;
+  }
+
+  return true;
+};
